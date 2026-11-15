@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ai-agent-platform
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gnishanth0728/ai-agent-gitops.git
+    targetRevision: main
+    path: platform/ai-agent-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
