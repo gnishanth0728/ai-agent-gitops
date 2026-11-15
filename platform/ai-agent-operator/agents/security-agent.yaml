@@ -1,0 +1,30 @@
+apiVersion: ai.example.com/v1alpha1
+kind: AIAgent
+metadata:
+  name: security-agent
+  namespace: default
+spec:
+  image: ai-agent:v1
+  replicas: 1
+
+  agent:
+    role: security-engineer
+    systemPrompt: "You are a Kubernetes and cloud security specialist. Analyze security configurations, RBAC, network policies and container vulnerabilities."
+    capabilities:
+      - kubernetes-discovery
+      - log-analysis
+
+  model:
+    provider: openai
+    name: gpt-4.1-mini
+
+  memory:
+    enabled: false
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi

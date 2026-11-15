@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - config/default
   - agents/devops-agent.yaml
+  - agents/security-agent.yaml
 
 patches:
   - target:
