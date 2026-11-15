@@ -5,6 +5,7 @@ resources:
   - config/default
   - agents/devops-agent.yaml
   - agents/security-agent.yaml
+  - agents/cloud-engineer-agent.yaml
 
 patches:
   - target:
